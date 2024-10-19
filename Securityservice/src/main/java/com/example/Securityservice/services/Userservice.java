@@ -23,7 +23,12 @@ public class Userservice {
 	
 
 	public AccessGuard adduser(AccessGuard accessGuard) {
+		if(userrepository.existsByFamilyid(accessGuard.getFamilyid())) {
+			throw new Exception("FamilyID already present kindly choose differnt FamilyID");
+		}
+		else {
 		accessGuard.setPassword(passwordEncoder.encode(accessGuard.getPassword()));
+		}
 		
 		return userrepository.save(accessGuard);
 	}

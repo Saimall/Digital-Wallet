@@ -11,6 +11,7 @@ public interface Userrepository extends JpaRepository<AccessGuard, Integer> {
 
 	AccessGuard findByUsername(String username);
 	
+	boolean existByFamilyid(Integer familyid);
 	
 
 	
